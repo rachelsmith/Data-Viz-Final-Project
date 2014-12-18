@@ -1,0 +1,36 @@
+Title
+========================================================
+
+Ultimately, I'd like to visualize something to answer the question "Who uses citibike?"
+
+Citibike's furnishes public data that details every trip taken since the beginning of the program. The elements provided are as follows:
+-Trip 
+
+Notably, the data has already been processed by citibike. They took out all trips under 60 seconds (under the assumption that they might be false starts or people trying to re-dock a bike to make sure it was secure), trips by staff members moving bikes, and trips from "test" stations.
+
+The data contains the following elements:
+-trip duration
+-start time and date
+-end time and date
+-start station name
+-end station name
+-station ID
+-station latitude/longitude
+-bike ID
+-user type (customer = 24h/7d pass, subscriber = annual subscriber)
+-gender
+-year of birth
+
+I explored the differences between customers and subscribers a bit for Homework 4, but now I'm interested in exploring a bit behind who those people are and how they differ. When I think of how I might classify citibike users if I were to go sit at a station and measure them, I tend to think that big ones would be age, frequency of ridership, where they live, and where they work.
+
+I'm choosing to work with June 2014 data because it's one of the most recent months published (which makes it interesting) but the most recent month is August and that might be hot enough to distort the data from "average readership".
+
+The birth year allows me to see the age of riders, so first I'd like to take a look at that data:
+```{r}
+june <- read.csv("2014-06 - Citi Bike trip data 2.csv")
+table(june$birth.year)
+june$birth.year[june$birth.year=="\\N"] <- NA
+table(is.na(june$birth.year)
+table(june$birth.year=="\\N", june$usertype=="Subscriber") 
+
+```
